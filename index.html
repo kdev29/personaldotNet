@@ -5,8 +5,9 @@
     <link rel="apple-touch-icon" sizes="76x76" href="img/italika-128.png" >
     <link rel="apple-touch-icon" sizes="120x120" href="img/italika-128.png" >
     <link rel="apple-touch-icon" sizes="152x152" href="img/italika-128.png" >
-    <!-- <meta name="apple-mobile-web-app-capable" content="yes" > -->
-    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes" > 
+    <link href="img/splash-i8.png" sizes="750x1334" rel="apple-touch-startup-image" />
+         <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
 </head>
 <body>
     <h1>Hello from IIS, IOS</h1>
@@ -15,4 +16,27 @@
     <img src="img/italika-128.png" alt="no psyduck">
     <img src="img/italika-128.png" alt="no psyduck">
 </body>
+
+<script>
+    // var worker = new Worker("sw.js");
+
+    // worker.addEventListener('message',function(e){
+
+    //     console.log('Worker said: ' + e.data);
+
+    // });
+
+    // worker.postMessage("Hello worker ->");
+
+    if('serviceWorker' in navigator){
+        window.addEventListener('load', function(){
+            navigator.serviceWorker.register('sw.js').then(function(registration){
+                console.log('SW registered with scope: ' + registration.scope);
+            },function(err){
+                console.log('SW registration failed ' + err);
+            });
+        });
+    }
+
+</script>
 </html>
