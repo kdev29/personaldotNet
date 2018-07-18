@@ -21,6 +21,11 @@
 <script src="app.js"></script>
 <script>
 
+Notification.requestPermission(function(status){
+    //debugger;
+    console.log(status);
+});
+
     function registerPushService(){
 
         debugger;
